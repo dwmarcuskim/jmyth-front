@@ -4,6 +4,7 @@
 
 	let chatMessage = "";
 	const placeHolder = "오늘이에게 보낼 메시지를 입력해 보세요.";
+	const url = "https://jmyth-176667264008.us-central1.run.app"
 
 	let welcomeTextEnabled = false;
 	let loading = false;
@@ -36,7 +37,7 @@
 		// POST 요청으로 threadId 생성
 		inputDisabled = true;
 		try {
-			const response = await fetch(`http://localhost:8080/assistant/thread/${threadId}/message`, {
+			const response = await fetch(`${url}/assistant/thread/${threadId}/message`, {
 				method: "GET",
 			});
 
@@ -106,7 +107,7 @@
 	async function initializeThread() {
 		try {
 			// POST 요청으로 threadId 생성
-			const response = await fetch("http://localhost:8080/assistant/thread", {
+			const response = await fetch(`${url}/assistant/thread`, {
 				method: "POST",
 			});
 
@@ -126,7 +127,7 @@
 
 	async function getNextMessage(message) {
 		try {
-			const response = await fetch(`http://localhost:8080/assistant/thread/${threadId}/message`, {
+			const response = await fetch(`${url}/assistant/thread/${threadId}/message`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "plain/text",
@@ -171,7 +172,7 @@
 			loadingText = "대화 초기화 중...";
 			loading = true;
 
-			const response = await fetch(`http://localhost:8080/assistant/thread/${threadId}`, {
+			const response = await fetch(`${url}/assistant/thread/${threadId}`, {
 				method: "DELETE",
 			});
 
