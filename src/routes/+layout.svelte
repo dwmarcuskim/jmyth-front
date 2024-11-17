@@ -1,5 +1,6 @@
 <script>
-	import OhneuriBg from '$lib/images/ohneuri_background.webp';
+	import { base } from '$app/paths';
+	const imagePath = `${base}/images/ohneuri_background.webp`;
 	import '../app.css';
 	
 	let { children } = $props();
@@ -7,7 +8,7 @@
 
 <div class="app">
 	<!-- set background image -->
-	<div class="background" style="background-image: url({OhneuriBg})"></div>
+	<div class="background" style="background-image: url({imagePath})"></div>
 	<main class="main my-8">
 		{@render children()}
 	</main>

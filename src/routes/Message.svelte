@@ -1,6 +1,7 @@
 <script>
     let { message, role } = $props();
-    import OhneuriProfile from '$lib/images/ohneuri_profile.jpg';
+    import { base } from '$app/paths';
+    const imagePath = `${base}/images/ohneuri_profile.jpg`;
 </script>
 
 <div class="w-full flex nanum-gothic-regular pb-2">
@@ -11,7 +12,7 @@
             <p class="text-left pr-2">{message}</p>
         </div>
     {:else}
-        <img class="w-12 h-12 rounded-full mr-2" id="bot-img" src="{OhneuriProfile}" alt="bot image">
+        <img class="w-12 h-12 rounded-full mr-2" id="bot-img" src="{imagePath}" alt="bot profile">
         <div class="relative ml-1 w-full max-w-80p">
             <!-- 말풍선 꼬리 -->
             <div class="absolute top-6 right-full transform -translate-y-1/2 w-0 h-0
